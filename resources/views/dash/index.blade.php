@@ -16,14 +16,14 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     @php
-                        $suma=0;
+                    $suma=0;
                     @endphp
                     @foreach ($ordenes as $ordene)
-                        @if ($ordene->estado_pago =='Pagado')
-                        @php
-                            $suma+=$ordene->total;
-                        @endphp 
-                        @endif
+                    @if ($ordene->estado_pago =='Pagado')
+                    @php
+                    $suma+=$ordene->total;
+                    @endphp
+                    @endif
                     @endforeach
                     <div class="inner">
                         <h3>L. {{ number_format($suma, 2 ) }}</h3>
@@ -32,7 +32,10 @@
                     <div class="icon">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <a href="ingresos" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+                    @can('reportes')
+                        <a href="ingresos" class="small-box-footer">Mas informacion <i
+                            class="fas fa-arrow-circle-right"></i></a>
+                    @endcan
                 </div>
             </div>
             <!-- ./col -->
@@ -46,8 +49,10 @@
                     <div class="icon">
                         <i class="fas fa-laptop"></i>
                     </div>
+                    @can('reportes')
                     <a href="terminados" class="small-box-footer">Mas informacion <i
                             class="fas fa-arrow-circle-right"></i></a>
+                    @endcan
                 </div>
             </div>
             <!-- ./col -->
@@ -61,7 +66,10 @@
                     <div class="icon">
                         <i class="fas fa-hourglass-half"></i>
                     </div>
-                    <a href="pendientes" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+                    @can('reportes')
+                    <a href="pendientes" class="small-box-footer">Mas informacion <i
+                            class="fas fa-arrow-circle-right"></i></a>
+                    @endcan
                 </div>
             </div>
             <!-- ./col -->
@@ -73,7 +81,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                   <center><h1>Equipos Listo para su entrega</h1></center> 
+                    <center>
+                        <h1>Equipos Listo para su entrega</h1>
+                    </center>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -117,7 +127,7 @@
                                 @method('PUT')
                                 <input type="hidden" name="estado" value="Entregado">
                                 <button type="submit" class="btn btn-success btn-sm mx-1">
-                                        Entregar</i>
+                                    Entregar</i>
                                 </button>
                             </form>
                         </td>
