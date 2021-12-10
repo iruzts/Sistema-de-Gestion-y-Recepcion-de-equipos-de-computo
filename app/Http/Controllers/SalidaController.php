@@ -93,6 +93,7 @@ class SalidaController extends Controller
     {
         $estado = Ordene::find($id);
         $estado->estado =$request->get('estado');
+        $estado->estado_pago =$request->get('Pagado');
 
         $estado->save();
         return redirect('/salida')->with('success', 'Datos Actualizados Correctamente');
