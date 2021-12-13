@@ -62,6 +62,7 @@
                             @csrf
                             @method('PUT')
                             <input type="hidden" name="estado" value="Entregado">
+                            <input type="hidden" name="Pagado" value="Pagado">
                             <button type="submit" class="btn btn-success btn-sm mx-1">
                                     Entregar</i>
                             </button>
