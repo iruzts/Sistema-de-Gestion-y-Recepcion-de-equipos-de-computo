@@ -21,7 +21,7 @@
                 </h6>
             </center>
         </div>
-        <form action="/reportes" method="POST" target="_blank">
+        <form action="{{ route('reporte') }}" method="GET" target="_blank">
             @csrf
             <div class="card-body">
                 <div class="form-group">

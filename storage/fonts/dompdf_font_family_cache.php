@@ -84,11 +84,11 @@ return array (
     'bold' => $fontDir . '/nunito_bold_20491dd02d708ed860212ace0e462b13',
   ),
   'font awesome 5 brands' => array(
-    'normal' => $fontDir . '/font_awesome_5_brands_normal_62e2109bd18db347a0fd91374c50b309',
+    'normal' => $fontDir . '/font_awesome_5_brands_normal_8eca03630423dd3a47c3d3d8f4dd2547',
   ),
   'font awesome 5 free' => array(
-    'normal' => $fontDir . '/font_awesome_5_free_normal_0fc387eb0cd430fb8d066c61c84f0e63',
-    '900' => $fontDir . '/font_awesome_5_free_900_be28ee15b7d59324286b2379021f1fcf',
+    'normal' => $fontDir . '/font_awesome_5_free_normal_f192984b13a5a0dc01318d8a3971bcac',
+    '900' => $fontDir . '/font_awesome_5_free_900_f9fa095e42dcd627b7a79f787eb74c39',
   ),
 );
 }; ?>

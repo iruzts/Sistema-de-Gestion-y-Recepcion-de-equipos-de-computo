@@ -32,15 +32,6 @@ class OrdenesServicioController extends Controller
         return view('orden-de-servicio.index',compact('clientes','equipos','colores','marcas','fecha','numero','ordenes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.

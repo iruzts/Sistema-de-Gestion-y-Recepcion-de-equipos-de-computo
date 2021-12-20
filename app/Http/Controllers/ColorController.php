@@ -15,16 +15,7 @@ class ColorController extends Controller
     public function index()
     {
         $colores = Color::all();
-        return view('color.index', compact('colores',$colores));    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('color.index', compact('colores',$colores));    
     }
 
     /**
@@ -39,28 +30,6 @@ class ColorController extends Controller
         $color -> nombre = $request -> get('nombrecolor');
         $color->save();
         return redirect('/color')->with('success','Color Creado Correctamente'); 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**

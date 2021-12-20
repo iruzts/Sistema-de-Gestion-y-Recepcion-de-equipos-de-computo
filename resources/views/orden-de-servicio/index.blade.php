@@ -77,11 +77,11 @@
                         @endif
                     </td>
                     <td class="flex">
-                        <a class="btn btn-primary btn-sm" rel="noopener" href="/ordenes/printpdf/{{$orden->id}}" target="_blank">
+                        <a class="btn btn-primary btn-sm" rel="noopener" href="{{ url('/ordenes/printpdf/'.$orden->id) }}" target="_blank">
                             <i class="fas fa-print"></i>
                             Tiket
                         </a>
-                        <a class="btn btn-primary btn-sm" href="/ordenes/pdf/{{$orden->id}}" target="_blank" title="Documento PDF">
+                        <a class="btn btn-primary btn-sm" href="{{ url('/ordenes/pdf/'.$orden->id) }}" target="_blank" title="Documento PDF">
                             <i class="fas fa-file-pdf"></i> </a>
                         <a class="btn btn-primary btn-sm"  href="{{route('ordenes.edit', $orden->id)}}"
                              title="editar">

@@ -44,6 +44,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::resource('empleado', 'App\Http\Controllers\EmpleadoController')->middleware('can:empleado')->names('empleado');
 
     //pdf
+    Route::get('/reporte_fecha', [App\Http\Controllers\ReporteController::class, 'reporte_fecha'])->name('reporte');
     Route::get('/ordenes/pdf/{id}', [App\Http\Controllers\OrdenesServicioController::class, 'pdf'])->name('pdf');
     Route::get('/ordenes/printpdf/{id}', [App\Http\Controllers\OrdenesServicioController::class, 'print'])->name('printpdf');
     Route::get('terminados-pdf', [App\Http\Controllers\ReporteController::class, 'terminadospdf'])->name('terminadospdf');

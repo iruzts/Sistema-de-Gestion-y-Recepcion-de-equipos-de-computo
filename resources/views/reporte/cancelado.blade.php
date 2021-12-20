@@ -19,7 +19,7 @@
             </ol>
         </div>
         <div class="col-sm-6">
-            <a type="button" class="btn btn-primary float-right btn-sm mr-1" href="/cancelados-pdf" target="_blank">
+            <a type="button" class="btn btn-primary float-right btn-sm mr-1" href="{{ route('canceladospdf') }}" target="_blank">
                 <i class="fas fa-print"></i> Imprimir
             </a>
         </div>
