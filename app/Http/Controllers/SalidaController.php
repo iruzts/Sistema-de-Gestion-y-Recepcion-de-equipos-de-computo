@@ -27,14 +27,13 @@ class SalidaController extends Controller
         date_default_timezone_set("America/Lima");
         $fecha_actual = Carbon::now();
         $fecha=$fecha_actual->format('d-m-Y');
-        $recepcions=Recepcion::all();
         $clientes = Cliente::all();
         $equipos = Equipo::all();
         $colores = Color::all();
         $marcas = Marca::all();
         $numero = Ordene::where('codigo', 1)->count();
         $ordenes = Ordene::all();
-        return view('entrega.index',compact('recepcions','clientes','equipos','colores','marcas','fecha','numero','ordenes'));
+        return view('entrega.index',compact('clientes','equipos','colores','marcas','fecha','numero','ordenes'));
     }
 
     /**

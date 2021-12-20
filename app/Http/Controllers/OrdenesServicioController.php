@@ -100,6 +100,10 @@ class OrdenesServicioController extends Controller
         //$pdf->loadHTML('<h1>Test<h1>');
         return $pdf->stream();
     }
+    public function print($id){
+        $tiket = Ordene::find($id);
+        return view('orden-de-servicio.pdf2',compact('tiket'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,7 +112,12 @@ class OrdenesServicioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $orden = Ordene::find($id);
+        $clientes = Cliente::all();
+        $equipos = Equipo::all();
+        $colores = Color::all();
+        $marcas = Marca::all();
+        return view('orden-de-servicio.update',compact('orden','equipos','colores','marcas','clientes'));
     }
 
     /**
@@ -120,13 +129,40 @@ class OrdenesServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $estado = Ordene::find($id);
-        $estado->estado =$request->get('estado');
-        $estado->estado_pago=$request->get('radio1');
+        if (isset($_POST["submit1"])) {
+            $estado = Ordene::find($id);
+            $estado->estado =$request->get('estado');
+            $estado->estado_pago=$request->get('radio1');
+            echo $estado;
+            $estado->save();
+            return redirect('/ordenes')->with('success', 'Datos Actualizados Correctamente');
 
-        $estado->save();
+        }if(isset($_POST["submit2"])){ 
+            $recepcion = Ordene::find($id);
+            $recepcion->modelo=$request->get('modelo');
+            $recepcion->serie=$request->get('serie');
+            $recepcion->claveequipo=$request->get('password');
+            $recepcion->problema=$request->get('problema');
+            $recepcion->dignostico=$request->get('dignostico');
+            $recepcion->fecha_probable_entrega=$request->get('fecha-entrega');
+            $recepcion->garantia=$request->get('garantia');
+            $recepcion->estado_pago=$request->get('radio1');
+            $recepcion->repuesto=$request->get('repuesto');
+            $recepcion->costo_repuesto=$request->get('costo_repuesto');
+            $recepcion->costo=$request->get('costo');
+            $recepcion->abono=$request->get('abono');
+            $recepcion->total=$request->get('total');
+            $recepcion->usuario_id=auth()->id();
+            $recepcion->cliente_id=$request->get('Ncliente');
+            $recepcion->equipos_id=$request->get('equipo');
+            $recepcion->marca_id=$request->get('marca');
+            $recepcion->color_id=$request->get('color');
+           
+            //echo $recepcion;
+            $recepcion->save();
+           return redirect('/ordenes')->with('success', 'Orden Actualizada Correctamente');
+        }
 
-        return redirect('/ordenes')->with('success', 'Datos Actualizados Correctamente');
     }
 
     /**

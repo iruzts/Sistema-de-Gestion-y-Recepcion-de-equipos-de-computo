@@ -70,32 +70,29 @@
                         <span class="badge badge-info">{{$orden->estado}}</span>
                         @endif
                     </td>
-                    <td>L. {{$orden->total}}  @if ($orden->estado_pago == 'Pendiente')
+                    <td>L. {{$orden->total}} @if ($orden->estado_pago == 'Pendiente')
                         <span class="badge badge-warning">{{$orden->estado_pago}}</span>
                         @elseif($orden->estado_pago == 'Pagado')
                         <span class="badge badge-success">{{$orden->estado_pago}}</span>
                         @endif
                     </td>
-                    <td>
-                        <a class="btn btn-primary btn-sm" href="/ordenes/pdf/{{$orden->id}}" target="_blank">
+                    <td class="flex">
+                        <a class="btn btn-primary btn-sm" rel="noopener" href="/ordenes/printpdf/{{$orden->id}}" target="_blank">
                             <i class="fas fa-print"></i>
                             Tiket
                         </a>
-                        <a class="btn btn-info btn-sm" data-toggle="modal" href=""
-                            data-target="#modaleditar{{$orden->id}}">
+                        <a class="btn btn-primary btn-sm" href="/ordenes/pdf/{{$orden->id}}" target="_blank" title="Documento PDF">
+                            <i class="fas fa-file-pdf"></i> </a>
+                        <a class="btn btn-primary btn-sm"  href="{{route('ordenes.edit', $orden->id)}}"
+                             title="editar">
                             <i class="fas fa-pencil-alt">
-                            </i>
+                            </i> </a>
+                        <a class="btn btn-info btn-sm" data-toggle="modal" href=""
+                            data-target="#modalestado{{$orden->id}}">
+                            <i class="fas fa-info-circle"></i>
                             Estatus
                         </a>
-                        @include('orden-de-servicio.update')
-                        <form action="{{ route('ordenes.destroy', $orden->id) }}" method="post"
-                            style="display: inline-block" class="formEliminar">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm mx-1"> <i class="fas fa-trash">
-                                    Eliminar</i>
-                            </button>
-                        </form>
+                        @include('orden-de-servicio.estado')
                     </td>
                 </tr>
                 @endforeach

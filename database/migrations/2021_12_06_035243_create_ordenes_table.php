@@ -15,7 +15,7 @@ class CreateOrdenesTable extends Migration
     {
         Schema::create('ordenes', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
+            $table->integer('codigo')->nullable();
             $table->string('modelo',50)->default('Sin Modelo')->nullable();
             $table->string('serie',50)->default('Sin Serie')->nullable();
             $table->string('claveequipo',50)->default('Sin Contraseña')->nullable();
@@ -30,7 +30,7 @@ class CreateOrdenesTable extends Migration
             $table->float('costo',8,2);
             $table->float('abono',8,2);
             $table->float('total',8,2);
-            $table->string('estado_pago',50);
+            $table->string('estado_pago',50)->nullable();
             $table->foreignId('usuario_id')
             ->nullable()
             ->constrained('users')

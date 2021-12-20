@@ -45,6 +45,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     //pdf
     Route::get('/ordenes/pdf/{id}', [App\Http\Controllers\OrdenesServicioController::class, 'pdf'])->name('pdf');
+    Route::get('/ordenes/printpdf/{id}', [App\Http\Controllers\OrdenesServicioController::class, 'print'])->name('printpdf');
     Route::get('terminados-pdf', [App\Http\Controllers\ReporteController::class, 'terminadospdf'])->name('terminadospdf');
     Route::get('pendientes-pdf', [App\Http\Controllers\ReporteController::class, 'pendientespdf'])->name('pendientespdf');
     Route::get('ingresos-pdf', [App\Http\Controllers\ReporteController::class, 'ingresospdf'])->name('ingresospdf');
