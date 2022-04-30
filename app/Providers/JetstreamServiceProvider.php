@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Providers;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Auth;
 
 use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +33,7 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
+        
     }
 
     /**

@@ -18,7 +18,7 @@
                          <td>{{$user->id}}</td>
                          <td>{{$user->name}}</td>
                          <td>{{$user->email}}</td>
-                         <td> @if ($user->status == 'Activo')
+                         <td> @if ($user->estado == '1')
                              <span class="badge badge-success">Activo</span>
                                 @else
                                 <span class="badge badge-danger">Inactivo</span>

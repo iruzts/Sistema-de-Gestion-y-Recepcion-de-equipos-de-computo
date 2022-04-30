@@ -25,7 +25,7 @@ Route::get('/contando', function () {
     return $equipos;
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+Route::middleware(['auth:sanctum', 'verified','canAccess'])->group(function (){
     Route::get('/dashboard', function(){
         return view('dashboard');
     })->name('dashboard');

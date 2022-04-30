@@ -37,13 +37,13 @@ class EmpleadoController extends Controller
                 $email = $request->get('email');
                 $password = $request->get('password');
                 $role = $request->get('role');
-                $estado= 'Activo';
-                    User::create([
-                        'name' =>  $name,
-                        'email' => $email,
-                        'password' => bcrypt($password),
-                        'status' => $estado,
-                    ])->assignRole($role);
+                $estado= true;
+                User::create([
+                    'name' =>  $name,
+                    'email' => $email,
+                    'password' => bcrypt($password),
+                    'estado' => $estado,
+                ])->assignRole($role);
             return redirect('/empleado')->with('success','Empleado Creado Correctamente'); 
           } catch(\Illuminate\Database\QueryException $ex){ 
             return redirect('/empleado')->with('danger','El correo Electronico Ya existe'); 
